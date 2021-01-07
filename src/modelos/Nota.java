@@ -10,30 +10,31 @@ package modelos;
  * @author Franklin
  */
 public class Nota {
-    private Estudiante est;
     private Paralelo paralelo;
     private double nexamen;
     private double ndeberes;
     private double nlecciones;
     private double ntalleres;
+    private double total;
 
-    public Nota(Estudiante est, Paralelo paralelo) {
-        this.est = est;
+    public Nota(Paralelo paralelo) {
         this.paralelo = paralelo;
         this.nexamen = 0.0;
         this.ndeberes = 0.0;
         this.nlecciones = 0.0;
         this.ntalleres = 0.0;
+        this.total=0.0;
     }
+
+    public double getTotal() {
+        return total;
+    }
+
+    public void setTotal(double total) {
+        this.total = total;
+    }
+
     
-    public Estudiante getEst() {
-        return est;
-    }
-
-    public void setEst(Estudiante est) {
-        this.est = est;
-    }
-
     public Paralelo getParalelo() {
         return paralelo;
     }

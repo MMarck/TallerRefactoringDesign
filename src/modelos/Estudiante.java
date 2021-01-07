@@ -12,6 +12,8 @@ public class Estudiante{
     public String direccion;
     public String telefono;
     public ArrayList<Paralelo> paralelos;
+    public ArrayList<Nota> inicial;
+    public ArrayList<Nota> Final;
     
     //Getter y setter de Matricula
 
@@ -79,13 +81,19 @@ public class Estudiante{
     }
     
     //Calcula y devuelve la nota inicial contando examen, deberes, lecciones y talleres. El teorico y el practico se calcula por parcial.
-    public double CalcularNota(Paralelo p, double nexamen,double ndeberes, double nlecciones, double ntalleres){
+    public double CalcularNota(Nota n, boolean isFinal){
         double nota=0;
         for(Paralelo par:paralelos){
-            if(p.equals(par)){
-                double notaTeorico=(nexamen+ndeberes+nlecciones)*0.80;
-                double notaPractico=(ntalleres)*0.20;
+            if(n.getParalelo().equals(par)){
+                int i=paralelos.indexOf(par);
+                double notaTeorico=(n.getNexamen()+n.getNdeberes()+n.getNlecciones())*0.80;
+                double notaPractico=(n.getNtalleres())*0.20;
                 nota=notaTeorico+notaPractico;
+                if (isFinal){
+                    this.Final.get(i).setTotal(nota);
+                } else {
+                    this.inicial.get(i).setTotal(nota);
+                }
             }
         }
         return nota;
@@ -96,7 +104,8 @@ public class Estudiante{
         double notaTotal=0;
         for(Paralelo par:paralelos){
             if(p.equals(par)){
-                notaTotal=(p.getMateria().getNotaInicial()+p.getMateria().getNotaFinal())/2;
+                int i=paralelos.indexOf(p);
+                notaTotal=(this.inicial.get(i).getTotal()+this.Final.get(i).getTotal())/2;
                 
             }
         }
