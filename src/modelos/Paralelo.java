@@ -13,6 +13,14 @@ public class Paralelo {
         return numero;
     }
 
+    public void addEstudiante(Estudiante est){
+        this.estudiantes.add(est);
+    }
+    
+    public boolean removeEstudiante(Estudiante est) {
+        return this.estudiantes.remove(est);
+    }
+    
     public void setNumero(int numero) {
         this.numero = numero;
     }
@@ -32,16 +40,17 @@ public class Paralelo {
     public void setProfesor(Profesor profesor) {
         this.profesor = profesor;
     }
+
+    public Ayudante getAyudante() {
+        return ayudante;
+    }
+
+    public void setAyudante(Ayudante ayudante) {
+        this.ayudante = ayudante;
+    }
     
     public ArrayList<Estudiante> getEstudiantes(){
         return this.estudiantes;
     }
     
-    public void addEstudiante(Estudiante est){
-        this.estudiantes.add(est);
-    }
-    
-    public boolean removeEstudiante(Estudiante est) {
-        return this.estudiantes.remove(est);
-    }
 }
