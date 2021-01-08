@@ -33,6 +33,7 @@ public class Ayudante {
     public void MostrarParalelos(){
         for(Paralelo par:paralelos){
             //Muestra la info general de cada paralelo
+            System.out.println(par.numero +". Materia: "+ par.materia +" Profesor: "+ profesor +" Ayudante: "+ayudante)
         }
     }
 }
